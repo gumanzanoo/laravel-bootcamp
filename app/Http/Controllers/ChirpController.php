@@ -47,8 +47,13 @@ class ChirpController extends Controller
         //
     }
 
+    /**
+     * @throws AuthorizationException
+     */
     public function update(StoreChirpRequest $request, Chirp $chirp): Redirector|Application|RedirectResponse
     {
+        $this->authorize('update', $chirp);
+
         $validated = $request->validated();
 
         $chirp->update($validated);
@@ -56,8 +61,15 @@ class ChirpController extends Controller
         return redirect(route('chirps.index'));
     }
 
-    public function destroy(Chirp $chirp)
+    /**
+     * @throws AuthorizationException
+     */
+    public function destroy(Chirp $chirp): Redirector|Application|RedirectResponse
     {
-        //
+        $this->authorize('delete', $chirp);
+
+        $chirp->delete();
+
+        return redirect(route('chirps.index'));
     }
 }

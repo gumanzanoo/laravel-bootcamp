@@ -53,7 +53,7 @@ class ChirpPolicy
      */
     public function update(User $user, Chirp $chirp)
     {
-        //
+        return $chirp->user()->is($user);
     }
 
     /**
@@ -65,7 +65,7 @@ class ChirpPolicy
      */
     public function delete(User $user, Chirp $chirp)
     {
-        //
+        return $this->update($user, $chirp);
     }
 
     /**
