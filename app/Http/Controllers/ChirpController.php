@@ -11,9 +11,7 @@ class ChirpController extends Controller
 {
     public function index(): Response
     {
-        return Inertia::render('Chirps/Index', [
-            //
-        ]);
+        return Inertia::render('Chirps/Index');
     }
 
     public function create()
