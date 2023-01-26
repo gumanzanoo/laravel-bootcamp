@@ -32,21 +32,6 @@ class ChirpController extends Controller
         return redirect(route('chirps.index'));
     }
 
-    public function create()
-    {
-        //
-    }
-
-    public function show(Chirp $chirp)
-    {
-        //
-    }
-
-    public function edit(Chirp $chirp)
-    {
-        //
-    }
-
     /**
      * @throws AuthorizationException
      */
